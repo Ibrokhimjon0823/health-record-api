@@ -1,0 +1,7 @@
+1. swagger - done
+2. admin panel optimization - done
+3. readme file
+4. code comments - done
+5. test
+6. deployment
+7. create test data and provide credentials to admin panel with email( admin@gmail.com) and password(test_password)
