@@ -29,6 +29,21 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## 🌐 Live Demo
+
+The API is deployed and available for testing at: `http://51.20.144.224`
+
+### Admin Panel Access
+- **URL**: http://51.20.144.224/admin/
+- **Username**: admin@gmail.com
+- **Password**: admin
+
+The admin panel provides access to:
+- User management
+- Health records overview
+- Notification monitoring
+- Database administration
+
 ## 📋 Table of Contents
 
 - [Project Overview](#project-overview)
@@ -86,8 +101,14 @@ Authorization: Bearer <access_token>
 
 ### Base URL
 
+**Local Development**:
 ```
 http://localhost:8000/api
+```
+
+**Live Server**:
+```
+http://51.20.144.224/api
 ```
 
 ### Endpoints Overview
@@ -298,39 +319,28 @@ REDIS_URL=redis://redis:6379
 4. **Error Handling**: Standardized error responses with appropriate status codes
 5. **Versioning Ready**: URL structure supports future API versioning
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is created as part of a technical assessment.
 
----
+## 📖 Additional Documentation
 
-## 📹 Code Walkthrough Guide
+### Swagger/OpenAPI Documentation
 
-When recording your code walkthrough, consider covering:
+Access the interactive API documentation:
 
-1. **Project Structure**: Explain the modular app design
-2. **Models & Relationships**: Show the database schema and relationships
-3. **Authentication Flow**: Demonstrate JWT implementation
-4. **Permissions System**: Show role-based access control
-5. **API Endpoints**: Walk through key endpoints with Swagger UI
-6. **Signal Handlers**: Explain automatic notification system
-7. **Testing**: Show test coverage and run some tests
-8. **Deployment**: Explain Docker setup and production considerations
-
-### Swagger Documentation
-
-Access the interactive API documentation at:
-
+**Local Development**:
 ```
 http://localhost:8000/api/schema/swagger-ui/
 ```
 
-This provides a complete API reference with the ability to test endpoints directly.
+**Live Server**:
+```
+http://51.20.144.224/api/schema/swagger-ui/
+```
+
+The Swagger UI provides:
+- Complete API reference
+- Interactive endpoint testing
+- Request/response examples
+- Authentication setup
