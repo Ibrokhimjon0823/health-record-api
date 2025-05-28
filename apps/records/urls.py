@@ -5,7 +5,6 @@ from . import views
 app_name = "records"
 
 urlpatterns = [
-    # Patient endpoints
     path(
         "patient/",
         views.PatientHealthRecordListCreateView.as_view(),
@@ -21,7 +20,6 @@ urlpatterns = [
         views.HealthRecordFileDeleteView.as_view(),
         name="health-record-file-delete",
     ),
-    # Doctor endpoints
     path(
         "doctor/",
         views.DoctorHealthRecordListView.as_view(),

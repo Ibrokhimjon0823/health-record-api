@@ -1,9 +1,10 @@
+from datetime import date
+
 import pytest
 from django.contrib.auth import get_user_model
 from django.db.utils import IntegrityError
-from datetime import date
 
-from apps.accounts.models import PatientProfile, DoctorProfile, Role, Gender
+from apps.accounts.models import DoctorProfile, Gender, PatientProfile, Role
 
 User = get_user_model()
 
@@ -140,15 +141,11 @@ class TestPatientProfile:
             )
 
     def test_patient_profile_requires_patient_role(self, doctor_user):
-        # Note: This test documents that role constraints are enforced via 
-        # limit_choices_to in the model, not at the database level
         profile = PatientProfile.objects.create(
             user=doctor_user,
             date_of_birth=date(1990, 1, 1),
             gender=Gender.MALE,
         )
-        # While this creates successfully at the DB level, 
-        # the admin interface and forms will enforce the constraint
         assert profile.user.role == Role.DOCTOR
 
 
@@ -191,14 +188,10 @@ class TestDoctorProfile:
             )
 
     def test_doctor_profile_requires_doctor_role(self, patient_user):
-        # Note: This test documents that role constraints are enforced via 
-        # limit_choices_to in the model, not at the database level
         profile = DoctorProfile.objects.create(
             user=patient_user,
             specialization="General Medicine",
             license_number="DOC44444",
             years_of_experience=8,
         )
-        # While this creates successfully at the DB level, 
-        # the admin interface and forms will enforce the constraint
         assert profile.user.role == Role.PATIENT
